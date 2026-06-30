@@ -1,0 +1,38 @@
+server:
+  port: 4004
+
+## RESTAPI - http://localhost:4004/api/patients
+## API GATEWAY - http://patient-service:4000/patients
+## PATIENT SERVICE(Spring Boot) -> /patients -> PATIENT ARRAY
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: patient-service-route
+          uri: http://host.docker.internal:4000
+          predicates:
+            - Path=/api/patients/**
+          filters:
+            - StripPrefix=1
+            - JwtValidation
+
+        - id: api-docs-patient-route
+          uri: http://host.docker.internal:4000
+          predicates:
+            - Path=/api-docs/patients
+          filters:
+            - RewritePath=/api-docs/patients,/v3/api-docs
+
+        - id: auth-service-route
+          uri: http://host.docker.internal:4005
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+            
+        - id: api-docs-auth-route
+          uri: http://host.docker.internal:4005
+          predicates:
+            - Path=/api-docs/auth
+          filters:
+            - RewritePath=/api-docs/auth,/v3/api-docs

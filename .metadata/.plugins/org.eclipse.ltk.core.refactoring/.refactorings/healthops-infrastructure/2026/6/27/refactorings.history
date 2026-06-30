@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;healthops-infrastructure/localstack-deploy.sh&apos; to &apos;localstack-deploy.bat&apos;" description="Rename resource &apos;localstack-deploy.sh&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="localstack-deploy.sh" name="localstack-deploy.bat" stamp="1782656820705" updateReferences="true"/>
+</session>

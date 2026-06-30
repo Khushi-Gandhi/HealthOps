@@ -1,0 +1,24 @@
+@echo off
+
+REM Stop execution if a command fails
+aws --endpoint-url=http://localhost:4566 cloudformation deploy ^
+    --stack-name healthops ^
+    --template-file ".\cdk.out\localstack.template.json"
+
+IF %ERRORLEVEL% NEQ 0 (
+    echo CloudFormation deployment failed.
+    exit /b %ERRORLEVEL%
+)
+
+aws --endpoint-url=http://localhost:4566 elbv2 describe-load-balancers ^
+    --query "LoadBalancers[0].DNSName" ^
+    --output text
+
+IF %ERRORLEVEL% NEQ 0 (
+    echo Failed to retrieve Load Balancer DNS.
+    exit /b %ERRORLEVEL%
+)
+
+echo.
+echo Deployment completed successfully.
+pause

@@ -1,0 +1,5 @@
+package com.khushi.healthops.controller;
+
+public class PatientController {
+
+}

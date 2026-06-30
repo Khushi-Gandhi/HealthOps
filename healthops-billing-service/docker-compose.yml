@@ -1,0 +1,17 @@
+services:
+  app:
+    build: .
+    container_name: billing-service
+    ports:
+      - "4001:4001"
+      - "9001:9001"
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network:
+    external: true
+
+#networks:
+#  internal:
+#    driver: bridge
