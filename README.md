@@ -1,7 +1,7 @@
 **🏥 HealthOps - Microservices-Based Healthcare Management System**
 HealthOps is a cloud-ready healthcare management system built using a microservices architecture with Spring Boot. The project demonstrates modern backend development practices, including RESTful APIs, gRPC communication, event-driven architecture with Kafka, API Gateway, JWT authentication, Docker containerization, integration testing, and Infrastructure as Code (IaC) using AWS CDK and LocalStack.
 🚀 Features
-	• Patient Management Service (CRUD operations)
+	• Patient Management Service (CRUD operations) 
 	• Billing Service using gRPC
 	• Analytics Service using Apache Kafka
 	• Authentication & Authorization using JWT
